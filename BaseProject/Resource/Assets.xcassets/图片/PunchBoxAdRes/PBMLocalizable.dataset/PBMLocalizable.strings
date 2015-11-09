@@ -1,0 +1,9 @@
+/* 
+   Localizable.strings
+   Signature
+
+   Created by fanshao on 09-8-21.
+   Copyright 2009 Sensky. All rights reserved.
+ */
+"PBM Connection Failed" = "网络连接失败，请您稍候再试。";
+"PBM FREE" = "免费";
