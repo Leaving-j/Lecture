@@ -8,6 +8,7 @@
 
 #import "LectureBookViewController.h"
 #import "LectureBookViewModel.h"
+#import "LectureBookCell.h"
 @interface LectureBookViewController ()<UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)LectureBookViewModel *bookVM;
 @end
@@ -23,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.collectionView registerClass:[LectureBookCell class] forCellWithReuseIdentifier:@"Cell"];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        [self.bookVM refreshDataCompletionHandle:^(NSError *error) {
            [self.collectionView.header endRefreshing];
@@ -62,19 +65,17 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    UIImageView *imageView = (UIImageView *)[cell.contentView viewWithTag:100];
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:200];
-    label.text = [self.bookVM titleWithIndexPath:indexPath];
-//     NSLog(@"label:%@",label.text);
-    [imageView setImageWithURL:[self.bookVM iconURLWithIndexPath:indexPath] placeholderImage:[UIImage imageNamed:@"me"]];
+    LectureBookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.titleLb.text = [self.bookVM titleWithIndexPath:indexPath];
+    cell.playLb.text = [self.bookVM playNumWithIndexPath:indexPath];
+    [cell.iconIV setImageWithURL:[self.bookVM iconURLWithIndexPath:indexPath] placeholderImage:[UIImage imageNamed:@"me"]];
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (kWindowW - 4*10)/3;
+    CGFloat width = (kWindowW - 4*10)/2;
     CGFloat height = width * 365.0/220.0;
     return CGSizeMake(width, height);
 }

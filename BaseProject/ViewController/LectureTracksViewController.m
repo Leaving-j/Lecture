@@ -21,7 +21,7 @@
 
 - (LectureTracksViewModel *)tracksVM {
     if(_tracksVM == nil) {
-        _tracksVM = [[LectureTracksViewModel alloc] init];
+        _tracksVM = [[LectureTracksViewModel alloc] initWithTracksId:_tracksId];
     }
     return _tracksVM;
 }

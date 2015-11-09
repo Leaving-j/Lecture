@@ -12,7 +12,7 @@
 @property(nonatomic,strong)LectureTracksModel *tracks;
 
 - (id)initWithTracksId:(NSNumber *)tracksId;
-
+@property(nonatomic,strong)NSNumber *tracksId;
 - (NSString *)title;
 - (NSString *)playtimes;
 - (NSString *)durations;

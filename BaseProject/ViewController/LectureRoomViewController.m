@@ -9,7 +9,7 @@
 #import "LectureRoomViewController.h"
 #import "LectureRoomViewModel.h"
 #import "LectureRoomCell.h"
-#import "LectureAlbumsViewModel.h"
+#import "LectureAlbumsViewController.h"
 @interface LectureRoomViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *logoIV;
 
@@ -18,13 +18,6 @@
 @end
 
 @implementation LectureRoomViewController
-
-//- (id)initWithUid:(NSNumber *)uid{
-//    if (self = [super init]) {
-//        self.uid = uid;
-//    }
-//    return self;
-//}
 
 - (LectureRoomViewModel *)roomVM{
     if (!_roomVM) {
@@ -79,9 +72,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    LectureAlbumsViewModel *albumsVM = [[LectureAlbumsViewModel alloc] initWithAlbumsId:[self.roomVM albumsIdForRow:indexPath.section]];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ 
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    LectureAlbumsViewController *vc = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    vc.albumsId = [self.roomVM albumsIdForRow:indexPath.section];
 }
 
 - (void)didReceiveMemoryWarning {

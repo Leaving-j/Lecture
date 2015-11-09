@@ -7,12 +7,12 @@
 //
 
 #import "LectureAlbumsViewModel.h"
-static NSInteger albumsID;
+
 @implementation LectureAlbumsViewModel
 
 - (id)initWithAlbumsId:(NSInteger)albumsId{
     if (self = [super init]) {
-        albumsID = albumsId;
+        self.albumsId = albumsId;
     }
     return self;
 }
@@ -49,12 +49,6 @@ static NSInteger albumsID;
 }
 
 
-- (NSURL *)playURLForRow:(NSInteger)row{
-    NSString *path = [self albumsForRow:row].playUrl64;
-    return [NSURL URLWithString:path];
-}
-
-
 - (NSNumber *)tracksIdForRow:(NSInteger)row{
     return [self albumsForRow:row].trackId;
 }
@@ -62,7 +56,7 @@ static NSInteger albumsID;
 
 
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    self.dataTask = [LectureNetManager getLectureAlbumsWithPage:_page albumId:albumsID completionHandle:^(LectureAlbumsModel *model, NSError *error) {
+    self.dataTask = [LectureNetManager getLectureAlbumsWithPage:_page albumId:_albumsId completionHandle:^(LectureAlbumsModel *model, NSError *error) {
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }

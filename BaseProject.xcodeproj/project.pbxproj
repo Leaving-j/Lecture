@@ -26,6 +26,7 @@
 		0549E92B1BECC86800B308BC /* LectureTracksViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */; };
 		0549E92E1BECCEF500B308BC /* LectureTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */; };
 		0549E9301BECD51500B308BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0549E92F1BECD51500B308BC /* AVFoundation.framework */; };
+		0561685E1BF0C46800D224A1 /* LectureBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561685D1BF0C46800D224A1 /* LectureBookCell.m */; };
 		05E7F5F21BED9FE000B39A0A /* LectureBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E7F5F11BED9FE000B39A0A /* LectureBookModel.m */; };
 		05E7F5F51BEDA09600B39A0A /* LectureBookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E7F5F41BEDA09600B39A0A /* LectureBookManager.m */; };
 		05E7F5F81BEDA76F00B39A0A /* LectureBookViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E7F5F71BEDA76F00B39A0A /* LectureBookViewModel.m */; };
@@ -105,26 +106,28 @@
 		0549E9061BEC506500B308BC /* LectureRoomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureRoomCell.m; sourceTree = "<group>"; };
 		0549E9071BEC506500B308BC /* LectureAlbumsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureAlbumsCell.h; sourceTree = "<group>"; };
 		0549E9081BEC506500B308BC /* LectureAlbumsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureAlbumsCell.m; sourceTree = "<group>"; };
-		0549E90C1BEC508400B308BC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0549E90D1BEC508400B308BC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0549E90E1BEC508400B308BC /* LectureRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureRoomViewController.h; sourceTree = "<group>"; };
-		0549E90F1BEC508400B308BC /* LectureRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureRoomViewController.m; sourceTree = "<group>"; };
-		0549E9101BEC508400B308BC /* LectureAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureAlbumsViewController.h; sourceTree = "<group>"; };
-		0549E9111BEC508400B308BC /* LectureAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureAlbumsViewController.m; sourceTree = "<group>"; };
-		0549E9151BEC509300B308BC /* LectureViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureViewModel.h; sourceTree = "<group>"; };
-		0549E9161BEC509300B308BC /* LectureViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureViewModel.m; sourceTree = "<group>"; };
-		0549E9171BEC509300B308BC /* LectureRoomViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureRoomViewModel.h; sourceTree = "<group>"; };
-		0549E9181BEC509300B308BC /* LectureRoomViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureRoomViewModel.m; sourceTree = "<group>"; };
-		0549E9191BEC509300B308BC /* LectureAlbumsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureAlbumsViewModel.h; sourceTree = "<group>"; };
-		0549E91A1BEC509300B308BC /* LectureAlbumsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureAlbumsViewModel.m; sourceTree = "<group>"; };
+		0549E90C1BEC508400B308BC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
+		0549E90D1BEC508400B308BC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
+		0549E90E1BEC508400B308BC /* LectureRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureRoomViewController.h; path = ../LectureRoomViewController.h; sourceTree = "<group>"; };
+		0549E90F1BEC508400B308BC /* LectureRoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureRoomViewController.m; path = ../LectureRoomViewController.m; sourceTree = "<group>"; };
+		0549E9101BEC508400B308BC /* LectureAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureAlbumsViewController.h; path = ../LectureAlbumsViewController.h; sourceTree = "<group>"; };
+		0549E9111BEC508400B308BC /* LectureAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureAlbumsViewController.m; path = ../LectureAlbumsViewController.m; sourceTree = "<group>"; };
+		0549E9151BEC509300B308BC /* LectureViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureViewModel.h; path = ../LectureViewModel.h; sourceTree = "<group>"; };
+		0549E9161BEC509300B308BC /* LectureViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureViewModel.m; path = ../LectureViewModel.m; sourceTree = "<group>"; };
+		0549E9171BEC509300B308BC /* LectureRoomViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureRoomViewModel.h; path = ../LectureRoomViewModel.h; sourceTree = "<group>"; };
+		0549E9181BEC509300B308BC /* LectureRoomViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureRoomViewModel.m; path = ../LectureRoomViewModel.m; sourceTree = "<group>"; };
+		0549E9191BEC509300B308BC /* LectureAlbumsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureAlbumsViewModel.h; path = ../LectureAlbumsViewModel.h; sourceTree = "<group>"; };
+		0549E91A1BEC509300B308BC /* LectureAlbumsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureAlbumsViewModel.m; path = ../LectureAlbumsViewModel.m; sourceTree = "<group>"; };
 		0549E91E1BEC519200B308BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0549E9261BECC61D00B308BC /* LectureTracksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureTracksModel.h; sourceTree = "<group>"; };
 		0549E9271BECC61D00B308BC /* LectureTracksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureTracksModel.m; sourceTree = "<group>"; };
-		0549E9291BECC86800B308BC /* LectureTracksViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureTracksViewModel.h; sourceTree = "<group>"; };
-		0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureTracksViewModel.m; sourceTree = "<group>"; };
-		0549E92C1BECCEF500B308BC /* LectureTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureTracksViewController.h; sourceTree = "<group>"; };
-		0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureTracksViewController.m; sourceTree = "<group>"; };
+		0549E9291BECC86800B308BC /* LectureTracksViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureTracksViewModel.h; path = ../LectureTracksViewModel.h; sourceTree = "<group>"; };
+		0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureTracksViewModel.m; path = ../LectureTracksViewModel.m; sourceTree = "<group>"; };
+		0549E92C1BECCEF500B308BC /* LectureTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureTracksViewController.h; path = ../LectureTracksViewController.h; sourceTree = "<group>"; };
+		0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureTracksViewController.m; path = ../LectureTracksViewController.m; sourceTree = "<group>"; };
 		0549E92F1BECD51500B308BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0561685C1BF0C46800D224A1 /* LectureBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureBookCell.h; sourceTree = "<group>"; };
+		0561685D1BF0C46800D224A1 /* LectureBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureBookCell.m; sourceTree = "<group>"; };
 		05E7F5F01BED9FE000B39A0A /* LectureBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureBookModel.h; sourceTree = "<group>"; };
 		05E7F5F11BED9FE000B39A0A /* LectureBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureBookModel.m; sourceTree = "<group>"; };
 		05E7F5F31BEDA09600B39A0A /* LectureBookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureBookManager.h; sourceTree = "<group>"; };
@@ -256,6 +259,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0561685A1BF0C0EC00D224A1 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				0549E90C1BEC508400B308BC /* ViewController.h */,
+				0549E90D1BEC508400B308BC /* ViewController.m */,
+				0549E90E1BEC508400B308BC /* LectureRoomViewController.h */,
+				0549E90F1BEC508400B308BC /* LectureRoomViewController.m */,
+				0549E9101BEC508400B308BC /* LectureAlbumsViewController.h */,
+				0549E9111BEC508400B308BC /* LectureAlbumsViewController.m */,
+				0549E92C1BECCEF500B308BC /* LectureTracksViewController.h */,
+				0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		0561685B1BF0C12800D224A1 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				0549E9151BEC509300B308BC /* LectureViewModel.h */,
+				0549E9161BEC509300B308BC /* LectureViewModel.m */,
+				0549E9171BEC509300B308BC /* LectureRoomViewModel.h */,
+				0549E9181BEC509300B308BC /* LectureRoomViewModel.m */,
+				0549E9191BEC509300B308BC /* LectureAlbumsViewModel.h */,
+				0549E91A1BEC509300B308BC /* LectureAlbumsViewModel.m */,
+				0549E9291BECC86800B308BC /* LectureTracksViewModel.h */,
+				0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
 		3804CE481BD758F10046C8C8 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +569,8 @@
 				0549E9061BEC506500B308BC /* LectureRoomCell.m */,
 				0549E9071BEC506500B308BC /* LectureAlbumsCell.h */,
 				0549E9081BEC506500B308BC /* LectureAlbumsCell.m */,
+				0561685C1BF0C46800D224A1 /* LectureBookCell.h */,
+				0561685D1BF0C46800D224A1 /* LectureBookCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -543,14 +578,7 @@
 		3886C0B61BD74A4A0014E661 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0549E90C1BEC508400B308BC /* ViewController.h */,
-				0549E90D1BEC508400B308BC /* ViewController.m */,
-				0549E90E1BEC508400B308BC /* LectureRoomViewController.h */,
-				0549E90F1BEC508400B308BC /* LectureRoomViewController.m */,
-				0549E9101BEC508400B308BC /* LectureAlbumsViewController.h */,
-				0549E9111BEC508400B308BC /* LectureAlbumsViewController.m */,
-				0549E92C1BECCEF500B308BC /* LectureTracksViewController.h */,
-				0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */,
+				0561685A1BF0C0EC00D224A1 /* 首页 */,
 				05E80E5E1BEF129C0074ABCD /* LectureViewController.h */,
 				05E80E5F1BEF129C0074ABCD /* LectureViewController.m */,
 				05E7F5F91BEDD2D500B39A0A /* LectureBookViewController.h */,
@@ -562,16 +590,9 @@
 		3886C0B71BD74A4A0014E661 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0561685B1BF0C12800D224A1 /* 首页 */,
 				3886C0B91BD74AE90014E661 /* BaseViewModel.h */,
 				3886C0BA1BD74AE90014E661 /* BaseViewModel.m */,
-				0549E9151BEC509300B308BC /* LectureViewModel.h */,
-				0549E9161BEC509300B308BC /* LectureViewModel.m */,
-				0549E9171BEC509300B308BC /* LectureRoomViewModel.h */,
-				0549E9181BEC509300B308BC /* LectureRoomViewModel.m */,
-				0549E9191BEC509300B308BC /* LectureAlbumsViewModel.h */,
-				0549E91A1BEC509300B308BC /* LectureAlbumsViewModel.m */,
-				0549E9291BECC86800B308BC /* LectureTracksViewModel.h */,
-				0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */,
 				05E7F5F61BEDA76F00B39A0A /* LectureBookViewModel.h */,
 				05E7F5F71BEDA76F00B39A0A /* LectureBookViewModel.m */,
 			);
@@ -753,6 +774,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0561685E1BF0C46800D224A1 /* LectureBookCell.m in Sources */,
 				0549E9121BEC508400B308BC /* ViewController.m in Sources */,
 				0549E91C1BEC509300B308BC /* LectureRoomViewModel.m in Sources */,
 				3886C0BE1BD74AFE0014E661 /* BaseNetManager.m in Sources */,

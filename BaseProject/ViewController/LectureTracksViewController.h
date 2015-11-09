@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LectureTracksViewController : UIViewController
-//- (id)initWithPlayURL:(NSURL *)url;
-//@property(nonatomic,strong)NSURL *url;
+@property(nonatomic,strong)NSNumber *tracksId;
 @end

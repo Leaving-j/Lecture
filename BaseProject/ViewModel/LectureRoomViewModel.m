@@ -7,10 +7,6 @@
 //
 
 #import "LectureRoomViewModel.h"
-//获取头部图片地址
-static NSString *logo;
-//获取上层传入ID
-static NSNumber *uuid;
 
 @implementation LectureRoomViewModel
 
@@ -26,7 +22,7 @@ static NSNumber *uuid;
 }
 
 - (NSURL *)LogoURL{
-    return [NSURL URLWithString:logo];
+    return [NSURL URLWithString:self.logo];
 }
 
 - (LectureRoomListModel *)roomList:(NSInteger)row{
@@ -56,7 +52,7 @@ static NSNumber *uuid;
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }
-        logo = model.largeLogo;
+        _logo = model.largeLogo;
         [self.dataArr addObjectsFromArray:model.list];
         completionHandle(error);
     }];

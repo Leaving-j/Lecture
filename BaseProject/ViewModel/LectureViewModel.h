@@ -9,7 +9,9 @@
 #import "BaseViewModel.h"
 #import "LectureNetManager.h"
 @interface LectureViewModel : BaseViewModel
+/** 有多少行 */
 @property(nonatomic)NSInteger rowNumber;
+
 @property(nonatomic)NSInteger page;
 /** 返回列表中某行数据的图片URL */
 - (NSURL *)iconURLForRow:(NSInteger)row;

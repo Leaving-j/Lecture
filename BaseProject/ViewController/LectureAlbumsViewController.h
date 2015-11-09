@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LectureAlbumsViewController : UIViewController
-
+@property(nonatomic)NSInteger albumsId;
 @end

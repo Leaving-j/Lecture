@@ -417,10 +417,10 @@
             </objects>
             <point key="canvasLocation" x="1325" y="-354"/>
         </scene>
-        <!--Lecture Book View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="Y4U-Jq-NQ7">
             <objects>
-                <collectionViewController id="j3M-6R-VBT" customClass="LectureBookViewController" sceneMemberID="viewController">
+                <collectionViewController id="j3M-6R-VBT" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TSt-7I-pZm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -506,7 +506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9x0-D9-8He" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="360"/>
+            <point key="canvasLocation" x="1238" y="385"/>
         </scene>
         <!--Lecture Tracks View Controller-->
         <scene sceneID="V3E-jZ-Aum">
@@ -593,7 +593,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVU-mO-d6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="519" y="10"/>
+            <point key="canvasLocation" x="830" y="385"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Eyf-Yw-gb7">

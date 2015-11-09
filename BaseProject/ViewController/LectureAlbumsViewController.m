@@ -9,7 +9,6 @@
 #import "LectureAlbumsViewController.h"
 #import "LectureAlbumsCell.h"
 #import "LectureAlbumsViewModel.h"
-#import "LectureTracksViewModel.h"
 #import "LectureTracksViewController.h"
 @interface LectureAlbumsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -21,7 +20,7 @@
 
 - (LectureAlbumsViewModel *)albumsVM {
     if(_albumsVM == nil) {
-        _albumsVM = [[LectureAlbumsViewModel alloc] init];
+        _albumsVM = [[LectureAlbumsViewModel alloc] initWithAlbumsId:_albumsId];
     }
     return _albumsVM;
 }
@@ -63,15 +62,13 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSNumber *albums = [self.albumsVM tracksIdForRow:indexPath.section];
-     NSLog(@"%@",albums);
-    LectureTracksViewModel *vm = [[LectureTracksViewModel alloc] initWithTracksId:albums];
-     NSLog(@"...");
-    
-    /*传播放地址
-    LectureTracksViewController *vc = [[LectureTracksViewController alloc] initWithPlayURL:[self.albumsVM playURLForRow:indexPath.section]];*/
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    LectureTracksViewController *vc = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    vc.tracksId = [self.albumsVM tracksIdForRow:indexPath.section];
 }
 
 - (void)didReceiveMemoryWarning {

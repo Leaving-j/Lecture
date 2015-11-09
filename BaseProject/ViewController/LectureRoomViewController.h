@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LectureRoomViewController : UIViewController
-//- (id)initWithUid:(NSNumber *)uid;
+//- (id)initWithUid:(NSNumber *)uid; 不需要初始化了，直接赋值就可以了
 @property(nonatomic,strong)NSNumber *uid;
 @end

@@ -8,14 +8,11 @@
 
 #import "LectureTracksViewModel.h"
 
-static NSNumber *tracksID;
-
 @implementation LectureTracksViewModel
 
 - (id)initWithTracksId:(NSNumber *)tracksId{
     if (self = [super init]) {
-       tracksID = tracksId;
-     NSLog(@"tracksID%@",tracksID);
+      _tracksId = tracksId;
     }
     return self;
 }
@@ -55,7 +52,7 @@ static NSNumber *tracksID;
 }
 
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    self.dataTask = [LectureNetManager getLectureWithTracksId:tracksID completionHandle:^(LectureTracksModel *model, NSError *error) {
+    self.dataTask = [LectureNetManager getLectureWithTracksId:_tracksId completionHandle:^(LectureTracksModel *model, NSError *error) {
         _tracks = model;
 //         NSLog(@"ID:%@",tracksID);
         completionHandle(error);

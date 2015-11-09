@@ -78,9 +78,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    LectureRoomViewModel *roomVM = [[LectureRoomViewModel alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];
+//    storyboard不能用这个方法传值，傻了
+/*    LectureRoomViewModel *roomVM = [[LectureRoomViewModel alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];
     
-//    LectureRoomViewController *vc = [[LectureRoomViewController alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];
+    LectureRoomViewController *vc = [[LectureRoomViewController alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];*/
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
