@@ -16,7 +16,7 @@ static NSNumber *uuid;
 
 - (id)initWithUid:(NSNumber *)uid{
     if (self = [super init]) {
-        uuid =uid;
+        self.uid =uid;
     }
     return self;
 }
@@ -52,7 +52,7 @@ static NSNumber *uuid;
 }
 
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    [LectureNetManager getLectureRoomWithPage:_page uid:uuid completionHandle:^(LectureRoomModel *model, NSError *error) {
+    [LectureNetManager getLectureRoomWithPage:_page uid:_uid completionHandle:^(LectureRoomModel *model, NSError *error) {
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }

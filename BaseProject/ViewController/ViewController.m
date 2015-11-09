@@ -78,10 +78,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    LectureRoomViewModel *roomVM = [[LectureRoomViewModel alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];
+//    LectureRoomViewModel *roomVM = [[LectureRoomViewModel alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];
     
 //    LectureRoomViewController *vc = [[LectureRoomViewController alloc] initWithUid:[self.lectureVM IDForRow:indexPath.section]];
-    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    LectureRoomViewController *vc = segue.destinationViewController;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    vc.uid = [self.lectureVM IDForRow:indexPath.section];
 }
 
 @end

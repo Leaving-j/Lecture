@@ -26,11 +26,11 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="81" id="iyR-Qj-zuV" customClass="LectureCell">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" restorationIdentifier="Cell" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="81" id="iyR-Qj-zuV" customClass="LectureCell">
                                         <rect key="frame" x="0.0" y="50" width="300" height="81"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iyR-Qj-zuV" id="49J-z3-JsO">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="81"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="267" height="81"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="KyH-vO-2RO">
@@ -83,7 +83,7 @@
                                             <outlet property="albumLb" destination="NUX-ws-RAh" id="lBy-C2-ipI"/>
                                             <outlet property="detailLb" destination="c48-9i-MNd" id="AeX-G4-Vk2"/>
                                             <outlet property="tilteLb" destination="bW7-M4-L3Y" id="bra-nt-NgY"/>
-                                            <segue destination="7tC-ld-7ZF" kind="push" id="n1Y-gP-FsO"/>
+                                            <segue destination="7tC-ld-7ZF" kind="push" id="IzW-rM-o7m"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

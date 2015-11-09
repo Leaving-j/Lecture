@@ -21,7 +21,7 @@
 
 //- (id)initWithUid:(NSNumber *)uid{
 //    if (self = [super init]) {
-//        _uid = uid;
+//        self.uid = uid;
 //    }
 //    return self;
 //}
@@ -29,7 +29,7 @@
 - (LectureRoomViewModel *)roomVM{
     if (!_roomVM) {
         _roomVM = [LectureRoomViewModel new];
-//        _roomVM = [[LectureRoomViewModel alloc] initWithUid:self.uid];
+        _roomVM = [[LectureRoomViewModel alloc] initWithUid:_uid];
     }
     return _roomVM;
 }
@@ -88,7 +88,6 @@
     [super didReceiveMemoryWarning];
    
 }
-
 
 
 @end

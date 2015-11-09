@@ -17,7 +17,7 @@
 - (NSString *)tracksForRow:(NSInteger)row;
 
 - (id)initWithUid:(NSNumber *)uid;
-//@property(nonatomic,strong)NSNumber *uid;
+@property(nonatomic,strong)NSNumber *uid;
 
 
 /** 传给AlbumsId*/

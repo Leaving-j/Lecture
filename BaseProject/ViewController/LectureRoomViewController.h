@@ -10,5 +10,5 @@
 
 @interface LectureRoomViewController : UIViewController
 //- (id)initWithUid:(NSNumber *)uid;
-//@property(nonatomic,strong)NSNumber *uid;
+@property(nonatomic,strong)NSNumber *uid;
 @end
