@@ -97,7 +97,7 @@
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
 
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake(170, 170);
+//    flowLayout.itemSize = CGSizeMake(170, 170);
     LectureBookViewController *bookVC = [[LectureBookViewController alloc] initWithCollectionViewLayout:flowLayout];
 
     [self.navigationController pushViewController:bookVC animated:YES];

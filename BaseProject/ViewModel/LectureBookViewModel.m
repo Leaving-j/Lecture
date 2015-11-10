@@ -38,6 +38,9 @@
     return [NSString stringWithFormat:@"%ld",[self bookListIndexPath:indexPath].plays_counts];
 }
 
+- (NSInteger)albumsIdWithIndexPath:(NSIndexPath *)indexPath{
+    return [self bookListIndexPath:indexPath].ID;
+}
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
     self.dataTask = [LectureBookManager getLectureBookType:BookTypeAll pageId:_page completionHandle:^(LectureBookModel *model, NSError *error) {
         if (_page == 1) {

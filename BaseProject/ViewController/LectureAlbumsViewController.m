@@ -18,6 +18,13 @@
 
 @implementation LectureAlbumsViewController
 
+- (id)initWithAlbumsId:(NSInteger)albumsId{
+    if (self = [super init]) {
+        self.albumsId = albumsId;
+    }
+    return self;
+}
+
 - (LectureAlbumsViewModel *)albumsVM {
     if(_albumsVM == nil) {
         _albumsVM = [[LectureAlbumsViewModel alloc] initWithAlbumsId:_albumsId];

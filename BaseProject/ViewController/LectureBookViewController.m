@@ -9,6 +9,7 @@
 #import "LectureBookViewController.h"
 #import "LectureBookViewModel.h"
 #import "LectureBookCell.h"
+#import "LectureAlbumsViewController.h"
 @interface LectureBookViewController ()<UICollectionViewDelegateFlowLayout>
 @property(nonatomic,strong)LectureBookViewModel *bookVM;
 @end
@@ -24,7 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.collectionView registerClass:[LectureBookCell class] forCellWithReuseIdentifier:@"Cell"];
+//    [self.collectionView registerClass:[LectureBookCell class] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        [self.bookVM refreshDataCompletionHandle:^(NSError *error) {
@@ -66,27 +67,32 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LectureBookCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.titleLb.text = [self.bookVM titleWithIndexPath:indexPath];
-    cell.playLb.text = [self.bookVM playNumWithIndexPath:indexPath];
-    [cell.iconIV setImageWithURL:[self.bookVM iconURLWithIndexPath:indexPath] placeholderImage:[UIImage imageNamed:@"me"]];
+    cell.nameLb.text = [self.bookVM titleWithIndexPath:indexPath];
+    [cell.imageIV setImageWithURL:[self.bookVM iconURLWithIndexPath:indexPath] placeholderImage:[UIImage imageNamed:@"me"]];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    LectureAlbumsViewController *vc = [[LectureAlbumsViewController alloc] initWithAlbumsId:[self.bookVM albumsIdWithIndexPath:indexPath]];
+//    [self.navigationController pushViewController:vc animated:YES];
+     NSLog(@"%ld",[self.bookVM albumsIdWithIndexPath:indexPath]);
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = (kWindowW - 4*10)/2;
-    CGFloat height = width * 365.0/220.0;
+    CGFloat width = (kWindowW - 3*10)/2;
+    CGFloat height = width * 365 / 220;
     return CGSizeMake(width, height);
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return -10;
+    return 10;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return 0;
+    return 10;
 }
 
 

@@ -13,10 +13,12 @@
 @property(nonatomic)BookType type;
 @property(nonatomic)NSInteger page;
 @property(nonatomic)NSInteger rowNumber;
-/** 返回对应下标的图片*/
+/** 返回对应下标的图片 */
 - (NSURL *)iconURLWithIndexPath:(NSIndexPath *)indexPath;
-/** 返回对应下标的题目*/
+/** 返回对应下标的题目 */
 - (NSString *)titleWithIndexPath:(NSIndexPath *)indexPath;
-/** 返回对应下标的播放数*/
+/** 返回对应下标的播放数 */
 - (NSString *)playNumWithIndexPath:(NSIndexPath *)indexPath;
+/** 返回对应下标的albumsId */
+- (NSInteger)albumsIdWithIndexPath:(NSIndexPath *)indexPath;
 @end
