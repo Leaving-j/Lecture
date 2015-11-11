@@ -99,6 +99,7 @@
     vc.albumsId = [self.roomVM albumsIdForRow:indexPath.section];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    

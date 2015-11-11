@@ -59,6 +59,7 @@
         _logo = model.largeLogo;
         _maxPageId = model.maxPageId;
         _nickName = model.nickname;
+        _signature = model.personalSignature;
          [self.dataArr addObjectsFromArray:model.list];
         completionHandle(error);
     }];

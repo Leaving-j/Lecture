@@ -54,7 +54,6 @@
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
     self.dataTask = [LectureNetManager getLectureWithTracksId:_tracksId completionHandle:^(LectureTracksModel *model, NSError *error) {
         _tracks = model;
-//         NSLog(@"ID:%@",tracksID);
         completionHandle(error);
     }];
 }

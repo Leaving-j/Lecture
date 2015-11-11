@@ -17,6 +17,8 @@
 @property(nonatomic)NSInteger maxPageId;
 /** 导航栏题目*/
 @property(nonatomic, strong)NSString *nickName;
+/** 简介 */
+@property(nonatomic,strong)NSString *signature;
 /** 是否有更多页*/
 @property(nonatomic, getter=isHasMore)BOOL isHasMore;
 /** 返回头部图片的URL*/
