@@ -11,4 +11,5 @@
 @interface LectureAlbumsViewController : UIViewController
 - (id)initWithAlbumsId:(NSInteger)albumsId;
 @property(nonatomic)NSInteger albumsId;
+
 @end

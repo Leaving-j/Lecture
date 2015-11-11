@@ -9,6 +9,13 @@
 #import "BaseViewModel.h"
 #import "LectureNetManager.h"
 @interface LectureAlbumsViewModel : BaseViewModel
+/** 头部图片地址 */
+@property(nonatomic,strong)NSURL *headerURL;
+- (NSURL *)headerURL;
+/** 头部图片名字 */
+@property(nonatomic,strong)NSString *headerName;
+/** 头部专辑数 */
+@property(nonatomic,strong)NSString *headerTracks;
 /** 多少行 */
 @property(nonatomic)NSInteger rowNumber;
 /** 当前页数 */

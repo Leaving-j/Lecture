@@ -58,8 +58,4 @@
     }];
 }
 
-- (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{
-    [self getDataFromNetCompleteHandle:completionHandle];
-}
-
 @end

@@ -13,6 +13,12 @@
 @interface LectureAlbumsViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIImageView *headerIV;
+@property (weak, nonatomic) IBOutlet UILabel *tracksLb;
+@property (weak, nonatomic) IBOutlet UILabel *nameLb;
+
+
+
 @property(nonatomic,strong)LectureAlbumsViewModel *albumsVM;
 @end
 
@@ -83,6 +89,9 @@
     cell.timeLb.text = [self.albumsVM durationForRow:indexPath.section];
     cell.sizeLb.text = [self.albumsVM sizeForRow:indexPath.section];
     self.title = self.albumsVM.naviTitle;
+    [_headerIV setImageWithURL:[self.albumsVM headerURL]];
+    _nameLb.text = self.albumsVM.headerName;
+    _tracksLb.text = self.albumsVM.headerTracks;
     return cell;
 }
 

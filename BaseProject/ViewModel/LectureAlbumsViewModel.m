@@ -16,7 +16,9 @@
     }
     return self;
 }
-
+- (NSURL *)headerURL{
+    return _headerURL;
+}
 - (NSInteger)rowNumber{
     return self.dataArr.count;
 }
@@ -66,6 +68,9 @@
         }
         _maxPageId = model.tracks.maxPageId;
         _naviTitle = model.album.title;
+        _headerURL = [NSURL URLWithString:model.album.smallLogo];
+        _headerName = model.album.nickname;
+        _headerTracks =[NSString stringWithFormat:@"节目数: %@", @(model.album.tracks).stringValue];
         [self.dataArr addObjectsFromArray:model.tracks.list];
         completionHandle(error);
     }];

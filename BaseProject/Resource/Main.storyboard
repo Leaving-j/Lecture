@@ -335,7 +335,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="X9x-UP-U9L">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="X9x-UP-U9L" customClass="LectureView">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -521,7 +521,7 @@
                                             <outlet property="sizeLb" destination="lZb-aY-6YA" id="Ju6-19-gmI"/>
                                             <outlet property="timeLb" destination="B3P-2m-Pur" id="jbG-Xh-kXA"/>
                                             <outlet property="titleLb" destination="moB-UB-yoc" id="cmu-Og-0Aa"/>
-                                            <segue destination="gq2-u4-dFa" kind="push" id="wT7-lN-eZz"/>
+                                            <segue destination="gq2-u4-dFa" kind="push" id="gJT-yV-kD6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -547,7 +547,10 @@
                     <navigationItem key="navigationItem" id="ciL-3a-Xtw"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="headerIV" destination="GfN-aY-sbd" id="tzZ-zn-4ys"/>
+                        <outlet property="nameLb" destination="sQg-pv-3fJ" id="Q5U-g2-CxJ"/>
                         <outlet property="tableView" destination="zUf-sV-Q7l" id="UK4-vT-CVG"/>
+                        <outlet property="tracksLb" destination="Roq-gW-yn4" id="sgY-pq-t21"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEC-1J-E1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,58 +614,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Zy-x0-ghB">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="10979719_0800.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="GXw-p2-I8t">
+                                <rect key="frame" x="0.0" y="64" width="320" height="390"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="VM0-xx-PBt">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="441"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1I-b3-xeh">
-                                            <rect key="frame" x="118" y="249" width="46" height="30"/>
-                                            <animations/>
-                                            <state key="normal" title="Button"/>
-                                            <connections>
-                                                <action selector="play:" destination="gq2-u4-dFa" eventType="touchUpInside" id="hKB-S4-kZp"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <animations/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </view>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EXs-3C-vbK">
-                                        <rect key="frame" x="0.0" y="533" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EXs-3C-vbK" id="qaQ-xp-nv3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                        </tableViewCellContentView>
-                                        <animations/>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="390" id="VVH-08-Ibx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《百家讲坛》20120227 大故宫 第一步 (四)  午门凤翔" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUp-9R-ePv">
+                                <rect key="frame" x="20" y="74" width="280" height="36"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Thw-G1-Fmk">
+                                <rect key="frame" x="0.0" y="454" width="320" height="5"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="gwB-Tg-nnE"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="sr1-4k-Elv" firstAttribute="top" secondItem="2Zy-x0-ghB" secondAttribute="bottom" id="74s-xE-lXr"/>
-                            <constraint firstAttribute="trailing" secondItem="2Zy-x0-ghB" secondAttribute="trailing" id="Gbj-9t-ED3"/>
-                            <constraint firstItem="2Zy-x0-ghB" firstAttribute="leading" secondItem="5gq-hK-qZi" secondAttribute="leading" id="bW1-6m-1yL"/>
-                            <constraint firstItem="2Zy-x0-ghB" firstAttribute="top" secondItem="1H8-22-lnQ" secondAttribute="bottom" id="u5C-hD-KXW"/>
+                            <constraint firstAttribute="trailing" secondItem="GXw-p2-I8t" secondAttribute="trailing" id="1mR-Zq-k3O"/>
+                            <constraint firstItem="Thw-G1-Fmk" firstAttribute="leading" secondItem="5gq-hK-qZi" secondAttribute="leading" id="2Db-rp-G2s"/>
+                            <constraint firstItem="GXw-p2-I8t" firstAttribute="top" secondItem="1H8-22-lnQ" secondAttribute="bottom" id="AV3-Id-Blf"/>
+                            <constraint firstItem="uUp-9R-ePv" firstAttribute="centerX" secondItem="5gq-hK-qZi" secondAttribute="centerX" id="D9g-Mj-9Qu"/>
+                            <constraint firstAttribute="trailing" secondItem="uUp-9R-ePv" secondAttribute="trailing" constant="20" id="PSv-o2-enF"/>
+                            <constraint firstAttribute="trailing" secondItem="Thw-G1-Fmk" secondAttribute="trailing" id="RIx-R6-cc7"/>
+                            <constraint firstItem="GXw-p2-I8t" firstAttribute="leading" secondItem="5gq-hK-qZi" secondAttribute="leading" id="S4T-VT-lzX"/>
+                            <constraint firstItem="uUp-9R-ePv" firstAttribute="leading" secondItem="5gq-hK-qZi" secondAttribute="leading" constant="20" id="aRg-1w-4cc"/>
+                            <constraint firstItem="uUp-9R-ePv" firstAttribute="top" secondItem="1H8-22-lnQ" secondAttribute="bottom" constant="10" id="baa-vu-nL6"/>
+                            <constraint firstItem="Thw-G1-Fmk" firstAttribute="top" secondItem="GXw-p2-I8t" secondAttribute="bottom" id="eMn-Sc-Rme"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NLd-zF-4ZX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="tableView" destination="2Zy-x0-ghB" id="LDq-tg-x8Y"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57B-hF-s7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3137" y="-373"/>
+            <point key="canvasLocation" x="3187" y="-373"/>
         </scene>
         <!--听书城-->
         <scene sceneID="9AA-ks-3MN">
@@ -708,6 +702,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="10979719_0800.jpg" width="307" height="557"/>
         <image name="albumInfoCell_play" width="26" height="26"/>
         <image name="albumInfoCell_tracks_mark" width="11" height="12"/>
         <image name="me" width="320" height="320"/>
