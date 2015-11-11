@@ -12,7 +12,7 @@
 
 - (id)initWithBookType:(BookType)type{
     if (self = [super init]) {
-        _type = type;
+        self.type = type;
     }
     return self;
 }
@@ -42,7 +42,7 @@
     return [self bookListIndexPath:indexPath].ID;
 }
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    self.dataTask = [LectureBookManager getLectureBookType:BookTypeAll pageId:_page completionHandle:^(LectureBookModel *model, NSError *error) {
+    self.dataTask = [LectureBookManager getLectureBookType:_type pageId:_page completionHandle:^(LectureBookModel *model, NSError *error) {
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }

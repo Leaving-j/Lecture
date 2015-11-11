@@ -7,7 +7,6 @@
 //
 
 #import "LectureBookViewController.h"
-#import "LectureBookViewModel.h"
 #import "LectureBookCell.h"
 #import "LectureAlbumsViewController.h"
 @interface LectureBookViewController ()<UICollectionViewDelegateFlowLayout>
@@ -18,14 +17,13 @@
 
 - (LectureBookViewModel *)bookVM{
     if (!_bookVM) {
-        _bookVM = [LectureBookViewModel new];
+        _bookVM = [[LectureBookViewModel alloc] initWithBookType:_type];
     }
     return _bookVM;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self.collectionView registerClass:[LectureBookCell class] forCellWithReuseIdentifier:@"Cell"];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        [self.bookVM refreshDataCompletionHandle:^(NSError *error) {
@@ -73,9 +71,13 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    LectureAlbumsViewController *vc = [[LectureAlbumsViewController alloc] initWithAlbumsId:[self.bookVM albumsIdWithIndexPath:indexPath]];
-//    [self.navigationController pushViewController:vc animated:YES];
-     NSLog(@"%ld",[self.bookVM albumsIdWithIndexPath:indexPath]);
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    LectureAlbumsViewController *vc = [segue destinationViewController];
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+    vc.albumsId = [self.bookVM albumsIdWithIndexPath:indexPath];
 }
 
 #pragma mark <UICollectionViewDelegateFlowLayout>

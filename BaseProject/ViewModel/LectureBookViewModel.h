@@ -11,6 +11,7 @@
 @interface LectureBookViewModel : BaseViewModel
 - (id)initWithBookType:(BookType)type;
 @property(nonatomic)BookType type;
+
 @property(nonatomic)NSInteger page;
 @property(nonatomic)NSInteger rowNumber;
 /** 返回对应下标的图片 */

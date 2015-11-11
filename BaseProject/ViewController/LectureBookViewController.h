@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LectureBookViewModel.h"
 @interface LectureBookViewController : UICollectionViewController
-
+@property(nonatomic)BookType type;
 @end

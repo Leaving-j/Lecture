@@ -9,11 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface LectureBookCell : UICollectionViewCell
-@property(nonatomic,strong)UIImageView *playIV;
-@property(nonatomic,strong)UILabel *playLb;
-@property(nonatomic,strong)UIImageView *iconIV;
-@property(nonatomic,strong)UILabel *titleLb;
-@property(nonatomic,strong)UIView *view;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
 

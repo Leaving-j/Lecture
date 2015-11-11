@@ -9,8 +9,12 @@
 #import "LectureViewController.h"
 #import "iCarousel.h"
 #import "LectureBookViewController.h"
+#import "LectureBookManager.h"
+#import "LectureBookViewModel.h"
 @interface LectureViewController ()<iCarouselDelegate,iCarouselDataSource>
 @property(nonatomic,strong)iCarousel *ic;
+@property(nonatomic)BookType type;
+/** 图片数组 */
 @property(nonatomic,strong)NSArray *imagesNames;
 @end
 
@@ -79,6 +83,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Heros" ofType:@"bundle"];
     path = [path stringByAppendingPathComponent:self.imagesNames[index]];
     imageView.image = [UIImage imageWithContentsOfFile:path];
+/** title数组 */
     NSArray *labelArr = [NSArray new];
     labelArr = @[@"全部",@"名师经典",@"历史传奇",@"帝王将相",@"风云人物",@"国学经典"];
     UILabel *label = (UILabel *)[view viewWithTag:200];
@@ -87,7 +92,7 @@
 }
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
-/** 修改缝隙*/
+/** 修改缝隙 */
     if (option == iCarouselOptionSpacing) {
         return value * 1.5;
     }
@@ -95,14 +100,39 @@
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
+    [self performSegueWithIdentifier:@"ablumSegue" sender:nil];
+}
 
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-//    flowLayout.itemSize = CGSizeMake(170, 170);
-    LectureBookViewController *bookVC = [[LectureBookViewController alloc] initWithCollectionViewLayout:flowLayout];
-
-    [self.navigationController pushViewController:bookVC animated:YES];
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    LectureBookViewController *vc = segue.destinationViewController;
+    /**
+     *currentItemIndex:获取当前项下标，把对应的类型传过去
+     */
+    switch (self.ic.currentItemIndex) {
+        case 0:
+            vc.type = BookTypeAll;
+            break;
+        case 1:
+            vc.type = BookTypeTeacher;
+            break;
+        case 2:
+            vc.type = BookTypeHistory;
+            break;
+        case 3:
+            vc.type = BookTypeKing;
+            break;
+        case 4:
+            vc.type = BookTypeMan;
+            break;
+        case 5:
+            vc.type = BookTypeTraditional;
+            break;
+        default:
+            break;
+    }
     
 }
+
 /*
 #pragma mark - Navigation
 
