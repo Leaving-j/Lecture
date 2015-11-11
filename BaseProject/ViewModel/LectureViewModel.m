@@ -34,12 +34,17 @@
     return [self listModelForRow:row].uid;
 }
 
+- (BOOL)isHasMore{
+    return _maxPageId > _page;
+}
+
 - (void)getDataFromNetCompleteHandle:(CompletionHandle)completionHandle{
-    [LectureNetManager getLectureWithPage:self.page completionHandle:^(LectureModel *model, NSError *error) {
+    [LectureNetManager getLectureWithPage:_page completionHandle:^(LectureModel *model, NSError *error) {
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }
         [self.dataArr addObjectsFromArray:model.list];
+        _maxPageId = model.maxPageId;
         completionHandle(error);
     }];
 }
@@ -49,11 +54,12 @@
     [self getDataFromNetCompleteHandle:completionHandle];
 }
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
-    _page += 1;
-    LectureModel *model = [LectureModel new];
-    if (_page == model.maxPageId+1) {
-        return;
+    if (self.isHasMore) {
+        _page += 1;
+        [self getDataFromNetCompleteHandle:completionHandle];
+    }else{
+        NSError *error = [NSError errorWithDomain:@"" code:999 userInfo:@{NSLocalizedDescriptionKey:@"没有更多数据！"}];
+        completionHandle(error);
     }
-    [self getDataFromNetCompleteHandle:completionHandle];
 }
 @end

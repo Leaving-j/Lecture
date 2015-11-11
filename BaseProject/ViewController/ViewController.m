@@ -31,15 +31,30 @@
 
    _tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
       [self.lectureVM refreshDataCompletionHandle:^(NSError *error) {
+          if (error) {
+              [self showErrorMsg:error.localizedDescription];
+          }else{
+             [self.tableView reloadData];
+              [self.tableView.footer resetNoMoreData];
+          }
           [self.tableView.header endRefreshing];
-          [self.tableView reloadData];
       }];
    }];
     [_tableView.header beginRefreshing];
     _tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self.lectureVM getMoreDataCompletionHandle:^(NSError *error) {
-            [self.tableView.footer endRefreshing];
-            [self.tableView reloadData];
+            if (error) {
+                [self showErrorMsg:error.localizedDescription];
+                [self.tableView.footer endRefreshing];
+            }else{
+                 [self.tableView reloadData];
+                if (self.lectureVM.isHasMore) {
+                   [self.tableView.footer endRefreshing];
+                }else{
+                    [self.tableView.footer endRefreshingWithNoMoreData];
+                }
+            }
+          
         }];
     }];
 }

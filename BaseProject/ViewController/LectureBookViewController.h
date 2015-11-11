@@ -10,4 +10,5 @@
 #import "LectureBookViewModel.h"
 @interface LectureBookViewController : UICollectionViewController
 @property(nonatomic)BookType type;
+@property(nonatomic,strong)NSString *naviTitle;
 @end

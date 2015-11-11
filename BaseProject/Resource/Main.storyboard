@@ -487,7 +487,7 @@
             </objects>
             <point key="canvasLocation" x="1325" y="-354"/>
         </scene>
-        <!--Lecture View Controller-->
+        <!--听书-->
         <scene sceneID="bhI-13-XuM">
             <objects>
                 <viewController id="n7h-bu-bZb" customClass="LectureViewController" sceneMemberID="viewController">
@@ -501,7 +501,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5bK-2j-BSv"/>
+                    <navigationItem key="navigationItem" title="听书" id="5bK-2j-BSv"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <segue destination="Ni7-Oz-8Nk" kind="push" identifier="ablumSegue" id="Tj2-DT-fvK"/>

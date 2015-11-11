@@ -16,6 +16,8 @@
 @property(nonatomic)BookType type;
 /** 图片数组 */
 @property(nonatomic,strong)NSArray *imagesNames;
+/** 题目数组*/
+@property(nonatomic,strong)NSArray *titleArr;
 @end
 
 @implementation LectureViewController
@@ -26,6 +28,13 @@
         _imagesNames = [fileManager subpathsAtPath:path];
     }
     return _imagesNames;
+}
+
+- (NSArray *)titleArr{
+    if (!_titleArr) {
+        _titleArr = @[@"全部",@"名师经典",@"历史传奇",@"帝王将相",@"风云人物",@"国学经典"];
+    }
+    return _titleArr;
 }
 
 - (iCarousel *)ic{
@@ -83,11 +92,8 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Heros" ofType:@"bundle"];
     path = [path stringByAppendingPathComponent:self.imagesNames[index]];
     imageView.image = [UIImage imageWithContentsOfFile:path];
-/** title数组 */
-    NSArray *labelArr = [NSArray new];
-    labelArr = @[@"全部",@"名师经典",@"历史传奇",@"帝王将相",@"风云人物",@"国学经典"];
     UILabel *label = (UILabel *)[view viewWithTag:200];
-    label.text = labelArr[index];
+    label.text = self.titleArr[index];
     return view;
 }
 
@@ -111,21 +117,27 @@
     switch (self.ic.currentItemIndex) {
         case 0:
             vc.type = BookTypeAll;
+            vc.naviTitle = _titleArr[0];
             break;
         case 1:
             vc.type = BookTypeTeacher;
+            vc.naviTitle = _titleArr[1];
             break;
         case 2:
             vc.type = BookTypeHistory;
+            vc.naviTitle = _titleArr[2];
             break;
         case 3:
             vc.type = BookTypeKing;
+            vc.naviTitle = _titleArr[3];
             break;
         case 4:
             vc.type = BookTypeMan;
+            vc.naviTitle = _titleArr[4];
             break;
         case 5:
             vc.type = BookTypeTraditional;
+            vc.naviTitle = _titleArr[5];
             break;
         default:
             break;

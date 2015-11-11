@@ -17,6 +17,10 @@
     return self;
 }
 
+- (BOOL)isHasMore{
+    return _maxPageId > _page;
+}
+
 - (NSInteger)rowNumber{
     return self.dataArr.count;
 }
@@ -53,7 +57,9 @@
             [self.dataArr removeAllObjects];
         }
         _logo = model.largeLogo;
-        [self.dataArr addObjectsFromArray:model.list];
+        _maxPageId = model.maxPageId;
+        _nickName = model.nickname;
+         [self.dataArr addObjectsFromArray:model.list];
         completionHandle(error);
     }];
 
@@ -62,14 +68,18 @@
 - (void)refreshDataCompletionHandle:(CompletionHandle)completionHandle{
     _page = 1;
     [self getDataFromNetCompleteHandle:completionHandle];
-    return;
 }
 
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
-    _page += 1;
-    if (_page < 3) {
-        return;
+    if (self.isHasMore) {
+         _page += 1;
+        [self getDataFromNetCompleteHandle:completionHandle];
+    }else{
+        NSError *error = [NSError errorWithDomain:@"" code:999 userInfo:@{NSLocalizedDescriptionKey:@"没有更多数据！"}];
+        completionHandle(error);
     }
-    [self getDataFromNetCompleteHandle:completionHandle];
+  
+    
+    
 }
 @end

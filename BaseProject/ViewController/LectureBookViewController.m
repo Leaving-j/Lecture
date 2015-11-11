@@ -24,17 +24,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = _naviTitle;
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        [self.bookVM refreshDataCompletionHandle:^(NSError *error) {
+           if (error) {
+               [self showErrorMsg:error.localizedDescription];
+           }else{
+                [self.collectionView reloadData];
+               [self.collectionView.footer resetNoMoreData];
+           }
            [self.collectionView.header endRefreshing];
-           [self.collectionView reloadData];
+          
        }];
     }];
     self.collectionView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
        [self.bookVM getMoreDataCompletionHandle:^(NSError *error) {
-           [self.collectionView.footer endRefreshing];
-           [self.collectionView reloadData];
+           if (error) {
+               [self showErrorMsg:error.localizedDescription];
+               [self.collectionView.footer endRefreshing];
+           }else{
+                [self.collectionView reloadData];
+               if (self.bookVM.isHasMore) {
+                   [self.collectionView.footer endRefreshing];
+               }else{
+                   [self.collectionView.footer endRefreshingWithNoMoreData];
+               }
+           }
+           
+          
        }];
     }];
     [self.collectionView.header beginRefreshing];

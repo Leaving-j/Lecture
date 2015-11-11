@@ -21,6 +21,10 @@
     return self.dataArr.count;
 }
 
+- (BOOL)isHasMore{
+    return _maxPageId > _page;
+}
+
 - (LectureBookListModel *)bookListIndexPath:(NSIndexPath *)indexPath{
     return self.dataArr[indexPath.row];
 }
@@ -46,8 +50,8 @@
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }
+        _maxPageId = model.maxPageId;
         [self.dataArr addObjectsFromArray:model.list];
-        
         completionHandle(error);
     }];
 }
@@ -58,7 +62,13 @@
 }
 
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
-    _page += 1;
-    [self getDataFromNetCompleteHandle:completionHandle];
+    if (self.isHasMore) {
+        _page += 1;
+        [self getDataFromNetCompleteHandle:completionHandle];
+    }else{
+        NSError *error = [NSError errorWithDomain:@"" code:999 userInfo:@{NSLocalizedDescriptionKey:@"没有更多数据！"}];
+        completionHandle(error);
+    }
+    
 }
 @end

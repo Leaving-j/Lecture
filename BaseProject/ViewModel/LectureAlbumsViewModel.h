@@ -9,8 +9,16 @@
 #import "BaseViewModel.h"
 #import "LectureNetManager.h"
 @interface LectureAlbumsViewModel : BaseViewModel
+/** 多少行 */
 @property(nonatomic)NSInteger rowNumber;
+/** 当前页数 */
 @property(nonatomic)NSInteger page;
+/** 最大页数 */
+@property(nonatomic)NSInteger maxPageId;
+/** 是否有更多页*/
+@property(nonatomic, getter=isHasMore)BOOL isHasMore;
+/** 导航栏题目 */
+@property(nonatomic,strong)NSString *naviTitle;
 /** 返回列表中某行数据的图片 */
 - (NSURL *)iconURLForRow:(NSInteger)row;
 /** 返回列表中某行数据的题目 */

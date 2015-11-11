@@ -29,21 +29,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-   _tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-     [self.roomVM refreshDataCompletionHandle:^(NSError *error) {
-         [self.tableView.header endRefreshing];
-         [self.tableView reloadData];
-     }];
- }];
-     [self.tableView.header beginRefreshing];
-    _tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self.roomVM getMoreDataCompletionHandle:^(NSError *error) {
-            [self.tableView.footer endRefreshing];
-            [self.tableView reloadData];
+    _tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.roomVM refreshDataCompletionHandle:^(NSError *error) {
+            if (error) {
+                [self showErrorMsg:error.localizedDescription];
+            }else{
+                [self.tableView reloadData];
+                [self.tableView.footer resetNoMoreData];
+            }
+            [self.tableView.header endRefreshing];
+            
         }];
     }];
-   
+    [self.tableView.header beginRefreshing];
+    
+    _tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self.roomVM getMoreDataCompletionHandle:^(NSError *error) {
+            if (error) {
+                [self showErrorMsg:error.localizedDescription];
+                [self.tableView.footer endRefreshing];
+            }else{
+                [self.tableView reloadData];
+                if (self.roomVM.isHasMore) {
+                    [self.tableView.footer endRefreshing];
+                }else{
+                    [self.tableView.footer endRefreshingWithNoMoreData];
+                }
+            }
+        }];
+    }];
+    
 }
 
 #pragma mark - UITabelViewDelegate
@@ -68,6 +83,8 @@
 //    
 //    cell.cornerRadius = 5.0f; // optional
 //    cell.separatorHeight = 2.0f; // optional
+//    self.title = [self.roomVM titleForRow:indexPath.section];
+    self.title = self.roomVM.nickName;
     return cell;
 }
 

@@ -21,6 +21,10 @@
     return self.dataArr.count;
 }
 
+- (BOOL)isHasMore{
+    return _maxPageId > _page;
+}
+
 - (LectureAlbumsTracksListModel *)albumsForRow:(NSInteger)row{
     return self.dataArr[row];
 }
@@ -60,6 +64,8 @@
         if (_page == 1) {
             [self.dataArr removeAllObjects];
         }
+        _maxPageId = model.tracks.maxPageId;
+        _naviTitle = model.album.title;
         [self.dataArr addObjectsFromArray:model.tracks.list];
         completionHandle(error);
     }];
@@ -71,7 +77,13 @@
 }
 
 - (void)getMoreDataCompletionHandle:(CompletionHandle)completionHandle{
-    _page += 1;
-    [self getDataFromNetCompleteHandle:completionHandle];
+    if (self.isHasMore) {
+        _page += 1;
+        [self getDataFromNetCompleteHandle:completionHandle];
+    }else{
+        NSError *error = [NSError errorWithDomain:@"" code:999 userInfo:@{NSLocalizedDescriptionKey:@"没有更多数据！"}];
+        completionHandle(error);
+    }
+
 }
 @end

@@ -36,14 +36,31 @@
     [super viewDidLoad];
     _tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.albumsVM refreshDataCompletionHandle:^(NSError *error) {
+            if (error) {
+                [self showErrorMsg:error.localizedDescription];
+            }else{
+                [self.tableView reloadData];
+                [self.tableView.footer resetNoMoreData];
+            }
             [self.tableView.header endRefreshing];
-            [self.tableView reloadData];
+            
         }];
     }];
     _tableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
        [self.albumsVM getMoreDataCompletionHandle:^(NSError *error) {
-           [self.tableView.footer endRefreshing];
-           [self.tableView reloadData];
+           if (error) {
+               [self showErrorMsg:error.localizedDescription];
+              [self.tableView.footer endRefreshing];
+           }else{
+                 [self.tableView reloadData];
+               if (self.albumsVM.isHasMore) {
+                   [self.tableView.footer endRefreshing];
+               }else{
+                   [self.tableView.footer endRefreshingWithNoMoreData];
+               }
+           }
+           
+         
        }];
     }];
     [_tableView.header beginRefreshing];
@@ -65,6 +82,7 @@
     cell.playLb.text = [self.albumsVM playtimesForRow:indexPath.section];
     cell.timeLb.text = [self.albumsVM durationForRow:indexPath.section];
     cell.sizeLb.text = [self.albumsVM sizeForRow:indexPath.section];
+    self.title = self.albumsVM.naviTitle;
     return cell;
 }
 
