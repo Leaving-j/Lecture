@@ -103,6 +103,8 @@
     LectureTracksViewController *vc = segue.destinationViewController;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     vc.tracksId = [self.albumsVM tracksIdForRow:indexPath.section];
+    vc.albumsArr = [self.albumsVM dataArr];
+    vc.beginPlay = indexPath.section;
 }
 
 - (void)didReceiveMemoryWarning {

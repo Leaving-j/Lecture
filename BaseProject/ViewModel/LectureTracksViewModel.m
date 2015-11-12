@@ -58,4 +58,8 @@
     }];
 }
 
+- (void)getDataCompletionHandle:(CompletionHandle)completionHandle{
+   
+}
+
 @end

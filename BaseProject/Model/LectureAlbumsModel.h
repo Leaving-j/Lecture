@@ -84,7 +84,7 @@
 
 @property (nonatomic, assign) NSInteger albumId;
 
-@property (nonatomic, assign) CGFloat duration;
+@property (nonatomic, strong) NSNumber *duration;
 
 @property (nonatomic, copy) NSString *coverLarge;
 
