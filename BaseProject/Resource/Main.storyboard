@@ -667,23 +667,41 @@
                                             <action selector="upBook:" destination="gq2-u4-dFa" eventType="touchUpInside" id="3XU-Pl-qha"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjZ-du-mYC">
+                                        <rect key="frame" x="273" y="14" width="39" height="17"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey1-yl-HWi">
+                                        <rect key="frame" x="8" y="14" width="39" height="17"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wjZ-du-mYC" secondAttribute="trailing" constant="8" id="1tW-Ys-Te4"/>
                                     <constraint firstItem="SaY-yz-vpy" firstAttribute="leading" secondItem="2ST-8a-Tsw" secondAttribute="leading" constant="20" id="Fbc-wf-sqe"/>
                                     <constraint firstItem="eK0-3Z-s7R" firstAttribute="centerX" secondItem="2ST-8a-Tsw" secondAttribute="centerX" id="K0f-1D-mKj"/>
                                     <constraint firstAttribute="bottom" secondItem="J2I-Sv-QTW" secondAttribute="bottom" constant="45" id="MYK-L6-0ad"/>
                                     <constraint firstItem="J2I-Sv-QTW" firstAttribute="leading" secondItem="2ST-8a-Tsw" secondAttribute="leading" constant="35" id="Pxj-Lb-38f"/>
+                                    <constraint firstItem="wjZ-du-mYC" firstAttribute="top" secondItem="2ST-8a-Tsw" secondAttribute="top" constant="14" id="Q7W-9H-9t2"/>
                                     <constraint firstAttribute="height" constant="165" id="VDt-Nh-vPm"/>
+                                    <constraint firstItem="ey1-yl-HWi" firstAttribute="top" secondItem="2ST-8a-Tsw" secondAttribute="top" constant="14" id="Y3A-oB-PZV"/>
                                     <constraint firstItem="SaY-yz-vpy" firstAttribute="top" secondItem="2ST-8a-Tsw" secondAttribute="top" constant="30" id="ZrA-eI-NRg"/>
+                                    <constraint firstItem="ey1-yl-HWi" firstAttribute="leading" secondItem="2ST-8a-Tsw" secondAttribute="leading" constant="8" id="bbY-LY-7GW"/>
                                     <constraint firstAttribute="bottom" secondItem="eK0-3Z-s7R" secondAttribute="bottom" constant="15" id="cRD-Bg-Aou"/>
                                     <constraint firstAttribute="bottom" secondItem="KXW-Bn-G9T" secondAttribute="bottom" constant="40" id="daO-cz-nwO"/>
                                     <constraint firstAttribute="trailing" secondItem="SaY-yz-vpy" secondAttribute="trailing" constant="20" id="nfn-X4-lfq"/>
                                     <constraint firstAttribute="trailing" secondItem="KXW-Bn-G9T" secondAttribute="trailing" constant="35" id="xK3-3j-meQ"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4cv-iK-LV5">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4cv-iK-LV5">
                                 <rect key="frame" x="-2" y="337" width="324" height="31"/>
                                 <animations/>
                                 <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -710,7 +728,9 @@
                     <navigationItem key="navigationItem" id="NLd-zF-4ZX"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="beginTimeLb" destination="ey1-yl-HWi" id="y1H-lj-Cai"/>
                         <outlet property="imageView" destination="ATI-V5-mZX" id="Wkx-gn-xP0"/>
+                        <outlet property="overTimeLb" destination="wjZ-du-mYC" id="GnL-W9-qBc"/>
                         <outlet property="playBtn" destination="eK0-3Z-s7R" id="Izl-R5-uYE"/>
                         <outlet property="slider" destination="4cv-iK-LV5" id="SXP-6m-hus"/>
                         <outlet property="titleLb" destination="SaY-yz-vpy" id="o5Z-zW-Y9T"/>

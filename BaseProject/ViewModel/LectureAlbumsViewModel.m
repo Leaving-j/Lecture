@@ -46,7 +46,7 @@
 - (NSString *)durationForRow:(NSInteger)row{
 /** 转换为形如 37:21 的形式*/
     NSInteger time = [self albumsForRow:row].duration.integerValue;
-    return [[NSString stringWithFormat:@"%ld",time / 60] stringByAppendingString:   [NSString stringWithFormat:@":%ld",time % 60]];
+    return [NSString stringWithFormat:@"%02ld:%02ld",time / 60,time % 60];
 }
 - (NSString *)sizeForRow:(NSInteger)row{
 /**转换为形如 17.1M 形式*/
