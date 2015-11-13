@@ -23,7 +23,6 @@
 		0549E91D1BEC509300B308BC /* LectureAlbumsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549E91A1BEC509300B308BC /* LectureAlbumsViewModel.m */; };
 		0549E91F1BEC519200B308BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0549E91E1BEC519200B308BC /* Assets.xcassets */; };
 		0549E9281BECC61D00B308BC /* LectureTracksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549E9271BECC61D00B308BC /* LectureTracksModel.m */; };
-		0549E92B1BECC86800B308BC /* LectureTracksViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */; };
 		0549E92E1BECCEF500B308BC /* LectureTracksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */; };
 		0549E9301BECD51500B308BC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0549E92F1BECD51500B308BC /* AVFoundation.framework */; };
 		0561685E1BF0C46800D224A1 /* LectureBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561685D1BF0C46800D224A1 /* LectureBookCell.m */; };
@@ -33,6 +32,7 @@
 		05E7F5FB1BEDD2D600B39A0A /* LectureBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E7F5FA1BEDD2D600B39A0A /* LectureBookViewController.m */; };
 		05E80E601BEF129C0074ABCD /* LectureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E80E5F1BEF129C0074ABCD /* LectureViewController.m */; };
 		05E80E621BEF12C50074ABCD /* Heros.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 05E80E611BEF12C50074ABCD /* Heros.bundle */; };
+		05E959D91BF5983A00CAD01D /* LectureTracksViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E959D81BF5983A00CAD01D /* LectureTracksViewModel.m */; };
 		1FACF87C97D68F953ECE365C /* libPods-BaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EAAD623A23724C816F8DC02 /* libPods-BaseProject.a */; };
 		3804CE511BD758F10046C8C8 /* AppDelegate+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804CE4A1BD758F10046C8C8 /* AppDelegate+Category.m */; };
 		3804CE521BD758F10046C8C8 /* NSObject+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 3804CE4C1BD758F10046C8C8 /* NSObject+Common.m */; };
@@ -121,8 +121,6 @@
 		0549E91E1BEC519200B308BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0549E9261BECC61D00B308BC /* LectureTracksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureTracksModel.h; sourceTree = "<group>"; };
 		0549E9271BECC61D00B308BC /* LectureTracksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureTracksModel.m; sourceTree = "<group>"; };
-		0549E9291BECC86800B308BC /* LectureTracksViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureTracksViewModel.h; path = ../LectureTracksViewModel.h; sourceTree = "<group>"; };
-		0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureTracksViewModel.m; path = ../LectureTracksViewModel.m; sourceTree = "<group>"; };
 		0549E92C1BECCEF500B308BC /* LectureTracksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LectureTracksViewController.h; path = ../LectureTracksViewController.h; sourceTree = "<group>"; };
 		0549E92D1BECCEF500B308BC /* LectureTracksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LectureTracksViewController.m; path = ../LectureTracksViewController.m; sourceTree = "<group>"; };
 		0549E92F1BECD51500B308BC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -139,6 +137,8 @@
 		05E80E5E1BEF129C0074ABCD /* LectureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureViewController.h; sourceTree = "<group>"; };
 		05E80E5F1BEF129C0074ABCD /* LectureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureViewController.m; sourceTree = "<group>"; };
 		05E80E611BEF12C50074ABCD /* Heros.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Heros.bundle; sourceTree = "<group>"; };
+		05E959D71BF5983A00CAD01D /* LectureTracksViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureTracksViewModel.h; sourceTree = "<group>"; };
+		05E959D81BF5983A00CAD01D /* LectureTracksViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureTracksViewModel.m; sourceTree = "<group>"; };
 		3804CE491BD758F10046C8C8 /* AppDelegate+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Category.h"; sourceTree = "<group>"; };
 		3804CE4A1BD758F10046C8C8 /* AppDelegate+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Category.m"; sourceTree = "<group>"; };
 		3804CE4B1BD758F10046C8C8 /* NSObject+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Common.h"; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 				0549E9181BEC509300B308BC /* LectureRoomViewModel.m */,
 				0549E9191BEC509300B308BC /* LectureAlbumsViewModel.h */,
 				0549E91A1BEC509300B308BC /* LectureAlbumsViewModel.m */,
-				0549E9291BECC86800B308BC /* LectureTracksViewModel.h */,
-				0549E92A1BECC86800B308BC /* LectureTracksViewModel.m */,
+				05E959D71BF5983A00CAD01D /* LectureTracksViewModel.h */,
+				05E959D81BF5983A00CAD01D /* LectureTracksViewModel.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -788,11 +788,11 @@
 				3804CE531BD758F10046C8C8 /* NSString+PJR.m in Sources */,
 				0549E90B1BEC506500B308BC /* LectureAlbumsCell.m in Sources */,
 				05E7F5F21BED9FE000B39A0A /* LectureBookModel.m in Sources */,
-				0549E92B1BECC86800B308BC /* LectureTracksViewModel.m in Sources */,
 				05E7F5FB1BEDD2D600B39A0A /* LectureBookViewController.m in Sources */,
 				05E7F5F51BEDA09600B39A0A /* LectureBookManager.m in Sources */,
 				3885C8F91BE8E96A009441EA /* PSCollectionView.m in Sources */,
 				3886C09B1BD748830014E661 /* AppDelegate.m in Sources */,
+				05E959D91BF5983A00CAD01D /* LectureTracksViewModel.m in Sources */,
 				3885C8981BE8E88D009441EA /* iCarousel.m in Sources */,
 				0549E90A1BEC506500B308BC /* LectureRoomCell.m in Sources */,
 				0549E9131BEC508400B308BC /* LectureRoomViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import "LectureTracksViewController.h"
 #import "LectureTracksViewModel.h"
 #import <AVFoundation/AVFoundation.h>
+static NSInteger i  = 0;
 @interface LectureTracksViewController ()
 @property(nonatomic,strong)LectureTracksViewModel *tracksVM;
 /** AVPlayer实现播放*/
@@ -21,7 +22,6 @@
 @property(nonatomic)NSInteger currentPlay;
 /** 开始播放时间 */
 @property(nonatomic)NSTimeInterval time;
-@property(nonatomic)NSTimeInterval nowTime;
 /** 定时器 */
 @property(nonatomic,strong)NSTimer *timer;
 
@@ -51,27 +51,26 @@
         [self playBook];
         [self.player play];
     }
-    [self timers];
+    [self runTimer];
 }
 
-- (void)timers{
+- (void)runTimer{
     [_timer invalidate];
+    _timer = nil;
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(playTimes) userInfo:nil repeats:YES];
     [_timer fire];
 }
 
 - (void)playTimes{
-    _nowTime = 0.0;
-//   当前时间
-    _nowTime = [[NSDate date] timeIntervalSince1970];
-    CGFloat runtimes = _nowTime - _time;
-    if (runtimes < 60) {
-         self.beginTimeLb.text = [NSString stringWithFormat:@"00:%02d",(int)runtimes];
+    
+    i = i + 1;
+     NSLog(@"i:%ld",i);
+    if (i < 60) {
+         self.beginTimeLb.text = [NSString stringWithFormat:@"00:%02ld",i];
     }else{
-        self.beginTimeLb.text = [NSString stringWithFormat:@"%02d:%02d",(int)runtimes/60,(int)runtimes % 60];
+        self.beginTimeLb.text = [NSString stringWithFormat:@"%02ld:%02ld",i/60,i % 60];
     }
    
-    
     NSMutableArray *durationArray = [NSMutableArray new];
     for (int i = 0; i < _albumsArr.count; i++) {
         LectureAlbumsTracksListModel *model = _albumsArr[i];
@@ -79,22 +78,37 @@
     }
     NSArray *durationArr = [durationArray copy];
     NSNumber *num = durationArr[_currentPlay];
+    NSInteger duration = num.integerValue;
+    if (i == duration) {
+        i = 0;
+        self.playBtn.selected = NO;
+        if (_currentPlay < _albumsArr.count) {
+            _currentPlay += 1;
+        }
+        if (_currentPlay == _albumsArr.count) {
+            _currentPlay = 0;
+        }
+        [self playBook];
+        [self.player play];
+    }
     self.overTimeLb.text = [NSString stringWithFormat:@"%02ld:%02ld",num.integerValue / 60,num.integerValue % 60];
-    self.slider.value =1.0 - (num.floatValue - runtimes)/num.floatValue;
+    self.slider.value =1.0 - (num.floatValue - i)/num.floatValue;
 
 }
 
 - (IBAction)play:(id)sender {
     if (self.playBtn.selected == YES) {
         [self.player play];
+        [self runTimer];
     }else{
         [self.player pause];
-        
+        [_timer invalidate];
         }
     self.playBtn.selected = !self.playBtn.selected;
 }
 - (IBAction)nextBook:(id)sender {
-    [self timers];
+    i = 0;
+    [self runTimer];
     self.playBtn.selected = NO;
     if (_currentPlay < _albumsArr.count) {
        _currentPlay += 1;
@@ -107,7 +121,8 @@
 }
 
 - (IBAction)upBook:(UIButton *)sender {
-    [self timers];
+     i = 0;
+    [self runTimer];
     self.playBtn.selected = NO;
     if (_currentPlay == 0) {
         _currentPlay = _albumsArr.count - 1;
@@ -138,13 +153,17 @@
     NSMutableArray *imageViewArray = [NSMutableArray new];
     for (int i = 0; i < _albumsArr.count; i++) {
         LectureAlbumsTracksListModel *model = _albumsArr[i];
+/** 有些model.coverLarge 为空 防止数组加nil会崩，给个没有实际意义的值 */
+        if (model.coverLarge == nil) {
+            [imageViewArray addObject:@"..."];
+        }else{
             [imageViewArray addObject:model.coverLarge];
+        }
+       
     }
     NSArray *coverArr = [imageViewArray copy];
     [self.imageView setImageWithURL:[NSURL URLWithString:coverArr[_currentPlay]]];
     
-    
-
 }
 
 

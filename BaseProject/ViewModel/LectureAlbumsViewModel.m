@@ -51,7 +51,7 @@
 - (NSString *)sizeForRow:(NSInteger)row{
 /**转换为形如 17.1M 形式*/
     CGFloat size = (float)[self albumsForRow:row].mp3size_64;
-    return [NSString stringWithFormat:@"%.1lf",size/1024/1024];
+    return [NSString stringWithFormat:@"%.1lfM",size/1024/1024];
 }
 
 
